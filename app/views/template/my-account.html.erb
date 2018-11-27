@@ -11,16 +11,16 @@
 <meta name="author" content="KingStudio.ro">
 
 <!-- favicon -->
-<link rel="icon" href="images/favicon.png">
+
 <!-- page title -->
 <title>inCart - Responsive Shop Theme</title>
 <!-- bootstrap css -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="css/bootstrap.min.css" rel="stylesheet">
 <!-- css -->
-<link href="css/style.css" rel="stylesheet">
+<!--<link href="css/style.css" rel="stylesheet">
 <link href="css/animate.css" rel="stylesheet">
 <!-- fonts -->
-<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700" rel="stylesheet">
+<!--<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href='fonts/FontAwesome.otf' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/linear-icons.css">
@@ -37,9 +37,7 @@
 <body>
 
 <!-- preloader -->
-<div id="preloader">
-    <div class="spinner spinner-round"></div>
-</div>
+
 <!-- / preloader -->
 
 <!-- header -->
@@ -50,8 +48,20 @@
                 <span class="left">Free Worldwide shipping on orders over <span class="text-primary"><strong>$100</strong></span>!</span>
                 <span class="right">
                     <a href="my-account.html"><i class="lnr lnr-user"></i> <span>My Account</span></a>
-                    <a href="login-register.html"><i class="lnr lnr-lock"></i> <span>Login / Register</span></a>
-                    <a href="shopping-cart.html"><i class="lnr lnr-cart"></i> <span>Shopping Cart (2)</span></a>
+    <% if user_signed_in? %>
+        <%= link_to "Sign Out  ", destroy_user_session_path, method: :delete %>
+        <%= current_user.email %>
+
+    <% else %>
+    
+        <%= link_to "Sign In      ", new_user_session_path %>
+
+
+        <%= link_to "Sign Up", new_user_registration_path %>
+    
+        <% end %>
+                    
+                    <a href="/shopping-cart"><i class="lnr lnr-cart"></i> <span>Shopping Cart (2)</span></a>
                 </span>
             </p>
         </div><!-- / container -->
@@ -65,44 +75,38 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt=""></a>
+                <a class="navbar-brand" href="/index"><%= image_tag('logo.png') %></a>
             </div><!-- / navbar-header -->
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="/">Home</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <span class="caret"></span></a>
                         <ul class="dropdown-menu pulse animated">
-                            <li><a href="shop-right.html">Shop: Right Sidebar</a></li>
-                            <li><a href="shop-left.html">Shop: Left Sidebar</a></li>
-                            <li><a href="shop-full.html">Shop: Full Width</a></li>
+                            <!--<li><a href="shop-right.html">Shop: Right Sidebar</a></li> -->
+                            <!--<li><a href="shop-left.html">Shop: Left Sidebar</a></li>-->
+                            <!-- <li><a href="shop-full.html">Shop: Full Width</a></li> -->
                             <li><a href="shop-filter.html">Shop: Filterable</a></li>
                             <li><a href="single-product.html">Single Product</a></li>
-                            <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
+                            <li><a href="/shopping-cart">Shopping Cart</a></li>
+                            <!-- <li><a href="checkout.html">Checkout</a></li> -->
                         </ul>
                     </li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Infos <span class="caret"></span></a>
                         <ul class="dropdown-menu pulse animated">
-                            <li><a href="login-register.html">Login / Register</a></li>
-                            <li class="active"><a href="my-account.html">My Account</a></li>
-                            <li><a href="single-post.html">Single Post</a></li>
+                            <li><a href="my-account.html">My Account</a></li>
                             <li><a href="faq.html">FAQ</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="404.html">404 Page</a></li>
-                            <li><a href="components.html">Components</a></li>
                         </ul>
                     </li>
                     <li class="dropdown w-image">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="images/eng.png" alt=""> <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= image_tag('eng.png') %> <span class="caret"></span></a>
                         <ul class="dropdown-menu pulse animated">
-                            <li><a href="#"><img src="images/fr.png" alt=""> FR</a></li>
-                            <li><a href="#"><img src="images/de.png" alt=""> DE</a></li>
-                            <li><a href="#"><img src="images/es.png" alt=""> ES</a></li>
+                            <li><a href="#"><%= image_tag('fr.png') %> FR</a></li>
+                            <li><a href="#"><%= image_tag('de.png') %> DE</a></li>
+                            <li><a href="#"><%= image_tag('es.png') %> ES</a></li>
                         </ul>
                     </li>    
                 </ul>
@@ -110,16 +114,15 @@
         </div><!-- / container -->
     </nav><!-- / navbar -->
 
-    <div id="page-header" class="my-account">
-        <div class="container">
-            <div class="page-header-content text-center">
-                <div class="page-header wsub">
-                    <h1 class="page-title fadeInDown animated first">My Account</h1>
-                </div><!-- / page-header -->
-                <p class="slide-text fadeInUp animated second">Your page's description goes here...</p>
-            </div><!-- / page-header-content -->
-        </div><!-- / container -->
-    </div><!-- / page-header -->
+    
+            <!-- controls -->
+<!--             <a class="left carousel-control" href="#slider" data-slide="prev"><span class="lnr lnr-chevron-left"></span></a>
+            <a class="right carousel-control" href="#slider" data-slide="next"><span class="lnr lnr-chevron-right"></span></a> -->
+            <!-- / controls -->
+
+        </div>
+        <!-- / slider-->
+    </div><!-- / sliders -->
 
 </header>
 <!-- / header -->
@@ -132,7 +135,7 @@
         <div class="row">
 
             <div class="col-sm-2 account-sidebar">
-                <img src="images/account-img.jpg" alt="">
+                <%= image_tag('account-img.jpg') %> 
                 <p><a href="#personal-info" class="page-scroll">Personal Info</a></p>
                 <p><a href="#shipping-info" class="page-scroll">Shipping Info</a></p>
                 <p><a href="#my-orders" class="page-scroll">My Orders</a></p>
@@ -146,7 +149,7 @@
                     <div class="row">
 
                         <div class="col-xs-6 col-sm-4 col-md-2">
-                            <img src="images/account-img.jpg" alt="">
+                            <%= image_tag('account-img.jpg') %> 
                             <a href="#x" class="btn btn-primary btn-xs btn-rounded no-margin">Change Image</a>
                         </div>
 
@@ -211,7 +214,7 @@
                 <div class="col-sm-6 col-md-4 widget">
                     <div class="about-widget">
                         <div class="widget-title-image">
-                            <img src="images/logo.png" alt="">
+                            <%= image_tag('logo.png') %> 
                         </div>
                         <p>Praesent sed congue ipsum. Nullam tempus ornare est, non aliquet velit tincidunt elementum. Nulla at risus ut felis eleifend. Nulla non lacinia. Integer est lacus, ultricies sed feugiat id, maximus nec.</p>
                     </div><!-- / about-widget -->
@@ -303,10 +306,10 @@
                     <p>© 2016 - <strong>inCart</strong> - Responsive Shop Theme.</p>
                 </div>
                 <span class="pull-right">
-                    <img src="images/visa.png" alt="">
-                    <img src="images/mastercard.png" alt="">
-                    <img src="images/discover.png" alt="">
-                    <img src="images/paypal.png" alt="">
+                    <%= image_tag('visa.png') %> 
+                    <%= image_tag('mastercard.png') %> 
+                    <%= image_tag('discover.png') %> 
+                    <%= image_tag('paypal.png') %> 
                 </span>
         </div><!-- / container -->
     </div><!-- / footer-info -->
@@ -314,17 +317,15 @@
 <!-- / footer -->
 
 <!-- javascript -->
-<script src="js/jquery.min.js"></script>
+<!--<script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.easing.min.js"></script>
 
-<!-- scrolling-nav -->
-<script src="js/scrolling-nav.js"></script>
+ scrolling-nav 
+<script src="js/scrolling-nav.js"></script>-->
 <!-- / scrolling-nav -->
 
-<!-- preloader -->
-<script src="js/preloader.js"></script>
-<!-- / preloader -->
+
 
 <!-- / javascript -->
 </body>
