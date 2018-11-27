@@ -10,20 +10,24 @@
 <meta name="keywords" content="responsive, retina ready, shop bootstrap template, html5, css3" />
 <meta name="author" content="KingStudio.ro">
 
+
+
 <!-- favicon -->
 <link rel="icon" href="images/favicon.png">
 <!-- page title -->
 <title>inCart - Responsive Shop Theme</title>
 <!-- bootstrap css -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 <!-- css -->
-<link href="css/style.css" rel="stylesheet">
+<!-- <link href="css/style.css" rel="stylesheet">
 <link href="css/animate.css" rel="stylesheet">
+<link href="css/owl.carousel.css" rel="stylesheet">
+<link href="css/owl.theme.css" rel="stylesheet"> -->
 <!-- fonts -->
-<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700" rel="stylesheet"> -->
+<!-- <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href='fonts/FontAwesome.otf' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="css/linear-icons.css">
+<link rel="stylesheet" href="css/linear-icons.css"> -->
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,7 +54,19 @@
                 <span class="left">Free Worldwide shipping on orders over <span class="text-primary"><strong>$100</strong></span>!</span>
                 <span class="right">
                     <a href="my-account.html"><i class="lnr lnr-user"></i> <span>My Account</span></a>
-                    <a href="login-register.html"><i class="lnr lnr-lock"></i> <span>Login / Register</span></a>
+    <% if user_signed_in? %>
+        <%= link_to "Sign Out  ", destroy_user_session_path, method: :delete %>
+        <%= current_user.email %>
+
+    <% else %>
+
+        <%= link_to "Sign In      ", new_user_session_path %>
+
+
+        <%= link_to "Sign Up", new_user_registration_path %>
+
+        <% end %>
+
                     <a href="shopping-cart.html"><i class="lnr lnr-cart"></i> <span>Shopping Cart (2)</span></a>
                 </span>
             </p>
@@ -65,11 +81,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt=""></a>
+                <a class="navbar-brand" href="index.html"><%= image_tag('logo.png') %></a>
             </div><!-- / navbar-header -->
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="index.html">Home</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <span class="caret"></span></a>
                         <ul class="dropdown-menu pulse animated">
@@ -78,7 +94,7 @@
                             <li><a href="shop-full.html">Shop: Full Width</a></li>
                             <li><a href="shop-filter.html">Shop: Filterable</a></li>
                             <li><a href="single-product.html">Single Product</a></li>
-                            <li class="active"><a href="shopping-cart.html">Shopping Cart</a></li>
+                            <li><a href="shopping-cart.html">Shopping Cart</a></li>
                             <li><a href="checkout.html">Checkout</a></li>
                         </ul>
                     </li>
@@ -98,13 +114,13 @@
                         </ul>
                     </li>
                     <li class="dropdown w-image">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="images/eng.png" alt=""> <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= image_tag('eng.png') %> <span class="caret"></span></a>
                         <ul class="dropdown-menu pulse animated">
-                            <li><a href="#"><img src="images/fr.png" alt=""> FR</a></li>
-                            <li><a href="#"><img src="images/de.png" alt=""> DE</a></li>
-                            <li><a href="#"><img src="images/es.png" alt=""> ES</a></li>
+                            <li><a href="#"><%= image_tag('fr.png') %> FR</a></li>
+                            <li><a href="#"><%= image_tag('de.png') %> DE</a></li>
+                            <li><a href="#"><%= image_tag('es.png') %> ES</a></li>
                         </ul>
-                    </li>    
+                    </li>
                 </ul>
             </div><!--/ nav-collapse -->
         </div><!-- / container -->
@@ -143,7 +159,7 @@
             </thead>
             <tbody>
                 <tr class="cart-item">
-                    <td class="image"><a href="#"><img src="images/product-small.jpg" alt=""></a></td>
+                    <td class="image"><a href="#"><%= image_tag('product-small.jpg') %></a></td>
                     <td><a href="single-product.html">Women's Shirt</a></td>
                     <td>$59</td>
                     <td class="qty"><input type="number" step="1" min="0" name="cart" value="1" title="Qty" class="input-text qty text" size="4"></td>
@@ -151,7 +167,7 @@
                     <td class="remove"><a href="#x" class="btn btn-danger-filled x-remove">×</a></td>
                 </tr>
                 <tr class="cart-item">
-                    <td class="image"><a href="#"><img src="images/product-small.jpg" alt=""></a></td>
+                    <td class="image"><a href="#"><%= image_tag('product-small.jpg') %></a></td>
                     <td><a href="single-product.html">Women's Jeans</a></td>
                     <td>$69</td>
                     <td class="qty"><input type="number" step="1" min="0" name="cart" value="2" title="Qty" class="input-text qty text" size="4"></td>
@@ -163,17 +179,8 @@
         <!-- / shopping cart table -->
 
         <div class="row cart-footer">
-            <div class="coupon col-sm-6">
-                <div class="input-group">
-                    <input type="text" class="form-control rounded" id="coupon-code" placeholder="Coupon Code">
-                    <span class="input-group-btn">
-                    <button class="btn btn-primary-filled btn-rounded" type="button"><i class="lnr lnr-tag"></i> <span>Apply Coupon</span></button>
-                    </span>
-                </div>
-            </div><!-- / input-group -->
-            <div class="update-cart col-sm-6">
-                <button class="btn btn-default-filled btn-rounded" type="button"><i class="lnr lnr-sync"></i> <span>Update Cart</span></button>
-            </div><!-- / update-cart -->
+
+
 
             <div class="col-sm-6 cart-total">
                 <h4>Cart Total</h4>
@@ -184,7 +191,19 @@
 
             <div class="col-sm-6 cart-checkout">
                 <a href="shop-right.html" class="btn btn-default-filled btn-rounded"><i class="lnr lnr-cart"></i> <span>Continue Shopping</span></a>
-                <a href="checkout.html" class="btn btn-primary-filled btn-rounded"><i class="lnr lnr-exit"></i> <span>Proceed to Checkout</span></a>
+                <form action="" method="POST">
+                    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    
+
+                      data-key="pk_test_D7h33u3kcuwNSb2niMOYG6uW"
+                      data-amount="999"
+                      data-name="Demo Site"
+                      data-description="Example charge"
+                      data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                      data-locale="auto"
+                      data-currency="eur">
+                    </script>
+                  </form>
             </div><!-- / cart-checkout -->
 
 
@@ -204,7 +223,7 @@
                 <div class="col-sm-6 col-md-4 widget">
                     <div class="about-widget">
                         <div class="widget-title-image">
-                            <img src="images/logo.png" alt="">
+                            <%= image_tag('logo.png') %>
                         </div>
                         <p>Praesent sed congue ipsum. Nullam tempus ornare est, non aliquet velit tincidunt elementum. Nulla at risus ut felis eleifend. Nulla non lacinia. Integer est lacus, ultricies sed feugiat id, maximus nec.</p>
                     </div><!-- / about-widget -->
@@ -296,15 +315,16 @@
                     <p>© 2016 - <strong>inCart</strong> - Responsive Shop Theme.</p>
                 </div>
                 <span class="pull-right">
-                    <img src="images/visa.png" alt="">
-                    <img src="images/mastercard.png" alt="">
-                    <img src="images/discover.png" alt="">
-                    <img src="images/paypal.png" alt="">
+                    <%= image_tag('visa.png') %>
+                    <%= image_tag('mastercard.png') %>
+                    <%= image_tag('discover.png') %>
+                    <%= image_tag('paypal.png') %>
                 </span>
         </div><!-- / container -->
     </div><!-- / footer-info -->
 </footer>
 <!-- / footer -->
+
 
 <!-- javascript -->
 <script src="js/jquery.min.js"></script>
