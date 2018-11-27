@@ -114,9 +114,8 @@
                 </ul>
             </div><!--/ nav-collapse -->
         </div><!-- / container -->
-    </nav>
-    <!-- / navbar -->
-   </header> 
+    </nav><!-- / navbar -->
+</header>
 <!-- / header -->
 
 <!-- content -->
@@ -127,23 +126,19 @@
         <div class="row">
 
             <div class="col-sm-12 content-area">
-                <p class="shop-results">Showing <strong>1-12</strong> of <strong>36</strong> items. 
-                    <span class="pull-right">
-                        <select class="selectpicker">
-                            <optgroup label="Sort By:">
-                                <option>Default</option>
-                                <option>Popularity</option>
-                                <option>Newness</option>
-                                <option>Rating</option>
-                                <option>Price Low to High</option>
-                                <option>Price High to Low</option>
-                            </optgroup>
-                        </select>
-                    </span>
-                </p>
+                <!-- product filter -->
+                <ul class="product-filter list-inline text-center">
+                    <li><a href="#" data-group="all" class="active">All</a></li>
+                    <li><a href="#" data-group="accessories">Accessories</a></li>
+                    <li><a href="#" data-group="bags">Bags</a></li>
+                    <li><a href="#" data-group="mens">Men's</a></li>
+                    <li><a href="#" data-group="womens">Women's</a></li>
+                    <li><a href="#" data-group="shirt">Shirt</a></li>
+                </ul>
+                <!-- / product filter -->
                 <div id="grid" class="row">
                     <!-- product -->
-                    <div class="col-xs-6 col-md-3 product">
+                    <div class="col-xs-6 col-md-3 product" data-groups='["womens", "shirt"]'>
                         <a href="single-product.html" class="product-link"></a>
                         <!-- / product-link -->
                         <img src="images/f-product.jpg" alt="">
@@ -167,7 +162,7 @@
                     </div><!-- / product -->
 
                     <!-- product -->
-                    <div class="col-xs-6 col-md-3 product">
+                    <div class="col-xs-6 col-md-3 product" data-groups='["womens", "shirt"]'>
                         <span class="sale-label">SALE</span>
                         <a href="single-product.html" class="product-link"></a>
                         <!-- / product-link -->
@@ -192,7 +187,7 @@
                     </div><!-- / product -->
 
                     <!-- product -->
-                    <div class="col-xs-6 col-md-3 product">
+                    <div class="col-xs-6 col-md-3 product" data-groups='["shirt"]'>
                         <a href="single-product.html" class="product-link"></a>
                         <!-- / product-link -->
                         <img src="images/f-product.jpg" alt="">
@@ -216,7 +211,7 @@
                     </div><!-- / product -->
 
                     <!-- product -->
-                    <div class="col-xs-6 col-md-3 product">
+                    <div class="col-xs-6 col-md-3 product" data-groups='["womens"]'>
                         <a href="single-product.html" class="product-link"></a>
                         <!-- / product-link -->
                         <img src="images/f-product.jpg" alt="">
@@ -240,7 +235,7 @@
                     </div><!-- / product -->
 
                     <!-- product -->
-                    <div class="col-xs-6 col-md-3 product">
+                    <div class="col-xs-6 col-md-3 product" data-groups='["womens"]'>
                         <a href="single-product.html" class="product-link"></a>
                         <!-- / product-link -->
                         <img src="images/f-product.jpg" alt="">
@@ -264,7 +259,7 @@
                     </div><!-- / product -->
 
                     <!-- product -->
-                    <div class="col-xs-6 col-md-3 product">
+                    <div class="col-xs-6 col-md-3 product" data-groups='["shirt"]'>
                         <a href="single-product.html" class="product-link"></a>
                         <!-- / product-link -->
                         <img src="images/f-product.jpg" alt="">
@@ -288,7 +283,7 @@
                     </div><!-- / product -->
 
                     <!-- product -->
-                    <div class="col-xs-6 col-md-3 product">
+                    <div class="col-xs-6 col-md-3 product" data-groups='["accessories", "mens"]'>
                         <a href="single-product.html" class="product-link"></a>
                         <!-- / product-link -->
                         <img src="images/f-product.jpg" alt="">
@@ -312,7 +307,7 @@
                     </div><!-- / product -->
 
                     <!-- product -->
-                    <div class="col-xs-6 col-md-3 product">
+                    <div class="col-xs-6 col-md-3 product" data-groups='["accessories", "mens"]'>
                         <a href="single-product.html" class="product-link"></a>
                         <!-- / product-link -->
                         <img src="images/f-product.jpg" alt="">
@@ -336,7 +331,7 @@
                     </div><!-- / product -->
 
                     <!-- product -->
-                    <div class="col-xs-6 col-md-3 product">
+                    <div class="col-xs-6 col-md-3 product" data-groups='["accessories", "bags"]'>
                         <span class="sale-label">SALE</span>
                         <a href="single-product.html" class="product-link"></a>
                         <!-- / product-link -->
@@ -361,7 +356,7 @@
                     </div><!-- / product -->
 
                     <!-- product -->
-                    <div class="col-xs-6 col-md-3 product">
+                    <div class="col-xs-6 col-md-3 product" data-groups='["accessories"]'>
                         <a href="single-product.html" class="product-link"></a>
                         <!-- / product-link -->
                         <img src="images/f-product.jpg" alt="">
@@ -385,7 +380,7 @@
                     </div><!-- / product -->
 
                     <!-- product -->
-                    <div class="col-xs-6 col-md-3 product">
+                    <div class="col-xs-6 col-md-3 product" data-groups='["accessories", "bags", "mens"]'>
                         <a href="single-product.html" class="product-link"></a>
                         <!-- / product-link -->
                         <img src="images/f-product.jpg" alt="">
@@ -409,7 +404,7 @@
                     </div><!-- / product -->
 
                     <!-- product -->
-                    <div class="col-xs-6 col-md-3 product">
+                    <div class="col-xs-6 col-md-3 product" data-groups='["womens"]'>
                         <a href="single-product.html" class="product-link"></a>
                         <!-- / product-link -->
                         <img src="images/f-product.jpg" alt="">
@@ -437,14 +432,6 @@
                     <!-- / grid-resizer -->
 
                 </div><!-- / row -->
-
-                <div class="pagination">
-                    <button type="button" class="btn btn-direction btn-default btn-rounded"><i class="lnr lnr-chevron-left"></i></button>
-                    <button type="button" class="btn btn-default btn-rounded btn-active">1</button>
-                    <button type="button" class="btn btn-default btn-rounded">2</button>
-                    <button type="button" class="btn btn-default btn-rounded">3</button>
-                    <button type="button" class="btn btn-direction btn-default btn-rounded"><i class="lnr lnr-chevron-right"></i></button>
-                </div>
 
             </div><!-- / content-area -->
 
