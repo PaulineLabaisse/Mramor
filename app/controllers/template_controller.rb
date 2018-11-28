@@ -29,3 +29,5 @@ end
 def shop_filter
 end
 
+def admin
+end

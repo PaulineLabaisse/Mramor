@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/single-product', to: 'template#single-product'
   get '/shop-filter', to: 'template#shop-filter'
   get '/contact', to: 'template#contact'
+  get '/admin', to:'template#admin'
 
 
 end
