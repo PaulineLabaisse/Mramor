@@ -22,6 +22,4 @@ Rails.application.routes.draw do
   get '/admin', to:'template#admin'
 
 
-
-
 end

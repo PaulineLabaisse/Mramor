@@ -11,7 +11,7 @@ end
 def shopping
 end
 
-end
+
 
 def about
 
@@ -36,5 +36,7 @@ end
 def shop_filter
 end
 
-def admin
+def new
+end
+
 end

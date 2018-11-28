@@ -1,7 +1,10 @@
 class Admin::ItemController < ApplicationController
   before_action :authenticate_admin!
 
-  def admin
+  def admin 
+  end 
+  
+  def index
     @items = Item.all
   end
 
