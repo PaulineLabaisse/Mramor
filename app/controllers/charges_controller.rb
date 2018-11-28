@@ -27,7 +27,8 @@ class ChargesController < ApplicationController
       :customer => customer.id,
       :amount => @amount,
       :description => 'customer nouveau',
-      :currency => 'eur'
+      :currency => 'eur',
+      receipt_email: 'jenny.rosen@example.com'
     )
 
   rescue Stripe::CardError => e
