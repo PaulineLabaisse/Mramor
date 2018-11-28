@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-
   devise_for :admins
   devise_for :users
-
+  resources :charges
   resources :item, only: [:index, :show]
   namespace :admin do
     root to: 'template#index'
@@ -16,10 +15,13 @@ Rails.application.routes.draw do
   get '/my-account', to: 'template#my-account'
   get '/shop-full', to: 'template#shop-full'
   get '/shopping-cart', to: 'template#shopping-cart'
+  post '/shopping-cart', to: 'template#index'
   get '/single-product', to: 'template#single-product'
   get '/shop-filter', to: 'template#shop-filter'
   get '/contact', to: 'template#contact'
   get '/admin', to:'template#admin'
+
+
 
 
 end
